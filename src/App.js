@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import Form from "./components/Form"
+import Nav from "./components/Nav"
+import TodoCard from "./components/TodoCard"
+import TodoDisplay from "./components/TodoDisplay"
 
-function App() {
+function App(props) {
+  let theName = 'Jennifer'
+  
+  const [currentTodo, emptyTodo] = useState(' ')
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   <>
+   <Nav name = {theName} />
+   <div className = 'container'>
+      <h3 className = 'text-center'> {theName}, get it together</h3>
+      <Form name = {theName} />
+      <div className = 'row'>
+  
+
+      <TodoCard name = {theName}/>
+      <div className="App">
+          <TodoDisplay />
+       </div>
+
+      </div>
+   </div>
+   
+   
+   </>
+  )
 }
 
 export default App;
